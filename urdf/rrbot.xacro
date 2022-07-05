@@ -175,16 +175,6 @@
     </actuator>
   </transmission>
 
-  <transmission name="tran1">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="joint1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="motor1">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
 
   <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>
@@ -196,7 +186,8 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
- <transmission name="tran2">
+
+ <transmission name="prismatic">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="prismatic">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>

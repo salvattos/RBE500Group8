@@ -1,6 +1,7 @@
 <launch>
-<include file="$(find rbe500GroupProject)/launch/rrbot_world.launch" />
+
  <include file="$(find rbe500GroupProject)/launch/rrbot_rviz.launch" />
+<include file="$(find rbe500GroupProject)/launch/rrbot_world.launch" />
 
 
 </launch>
