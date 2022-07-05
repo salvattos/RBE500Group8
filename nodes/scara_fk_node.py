@@ -23,7 +23,7 @@ def callback(fkData):
     t1 = fkData.position[0]
     t2 = fkData.position[1]
     d3 = fkData.position[2]
-    rospy.loginfo(d3)
+
     rate = rospy.Rate(10) # 10hz
     if not rospy.is_shutdown():
 
@@ -48,13 +48,13 @@ def callback(fkData):
         fk_pub.publish(p)
 
         rospy.loginfo(rospy.get_caller_id() + "Published Pose")
-        rate.sleep()
+
 
 
 def scara_fk_node():
     rospy.loginfo(rospy.get_caller_id() + "started FK node")
     rospy.init_node('scara_fk_node', anonymous=True)
-    rospy.Subscriber("/joint_states", JointState, callback)
+    rospy.Subscriber("/rrbot/joint_states", JointState, callback)
     
     rospy.spin()
 
