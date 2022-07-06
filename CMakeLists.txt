@@ -63,6 +63,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
  add_service_files(
   FILES
   scaraIK.srv
+  EffectorGoToPosition.srv
  )
 
 ## Generate actions in the 'action' folder
@@ -175,7 +176,7 @@ include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
- catkin_install_python(PROGRAMS nodes/scara_fk_node.py nodes/scara_ik_server.py
+ catkin_install_python(PROGRAMS nodes/scara_fk_node.py nodes/scara_ik_server.py nodes/scara_pd_control_node.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 
