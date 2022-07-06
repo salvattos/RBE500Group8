@@ -9,7 +9,6 @@
 import time
 import warnings
 
-
 def _clamp(value, limits):
     lower, upper = limits
     if value is None:
@@ -19,16 +18,6 @@ def _clamp(value, limits):
     elif (lower is not None) and (value < lower):
         return lower
     return value
-
-
-try:
-    # Get monotonic time to ensure that time deltas are always positive
-    _current_time = time.monotonic
-except AttributeError:
-    # time.monotonic() not available (using python < 3.3), fallback to time.time()
-    _current_time = time.time
-    warnings.warn(
-        'time.monotonic() not available in python < 3.3, using time.time() as fallback')
 
 
 class PID(object):
@@ -84,8 +73,7 @@ class PID(object):
         self._proportional = 0
         self._integral = 0
         self._derivative = 0
-
-        self._last_time = None
+        
         self._last_output = None
         self._last_error = None
         self._last_input = None
@@ -104,11 +92,8 @@ class PID(object):
         """
         if not self.auto_mode:
             return self._last_output
-
-        now = _current_time()
-        if dt is None:
-            dt = now - self._last_time if (now - self._last_time) else 1e-16
-        elif dt <= 0:
+                
+        if dt <= 0:
             raise ValueError(
                 'dt has negative value {}, must be positive'.format(dt))
 
@@ -152,8 +137,7 @@ class PID(object):
         # Keep track of state
         self._last_output = output
         self._last_input = input_
-        self._last_error = error
-        self._last_time = now
+        self._last_error = error        
 
         return output
 
@@ -255,7 +239,6 @@ class PID(object):
         self._derivative = 0
 
         self._integral = _clamp(self._integral, self.output_limits)
-
-        self._last_time = _current_time()
+        
         self._last_output = None
         self._last_input = None
