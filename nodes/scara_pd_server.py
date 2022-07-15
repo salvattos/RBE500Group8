@@ -20,8 +20,8 @@ class scaraPD:
         self.current_t0 = 0
         self.current_t2 = 0
 
-        self.kp = 2
-        self.kd = 1.5
+        self.kp = 3
+        self.kd = .75
 
         self.t0_kp = .75
         self.t0_kd = 1.25
@@ -55,15 +55,15 @@ class scaraPD:
         trigger = 0
         dt = .1
 
-        desiredPosPris = req.z
+        desiredPosPris = req.d3
         errorPris = desiredPosPris - self.d3_current_pos
         lastPosPris = self.d3_current_pos
 
-        desiredT0 = req.x #need to update dynamically
+        desiredT0 = req.t0 #need to update dynamically
         errorT0 = desiredT0 - self.current_t0
         lastT0 = self.current_t0
 
-        desiredT2 = req.y #need to update dynamically
+        desiredT2 = req.t2 #need to update dynamically
         errorT2 = desiredT2 - self.current_t2
         lastT2 = self.current_t2
 
@@ -86,12 +86,12 @@ class scaraPD:
             rospy.loginfo(self.current_t2)
             self.sendEffort(effortT2,'joint2')
             self.sendEffort(effortT0,'joint0')
-            #self.sendEffort(effortPris,'prismatic')
+            self.sendEffort(effortPris,'prismatic')
 
             rospy.sleep(dt)
 
             #Make sure the EE is in the desired position for a few cycles
-            if abs(errorPris) < .01 and abs(errorT0) < .05 and abs(errorT2) < .01:
+            if abs(errorPris) < .01 and abs(errorT0) < .01 and abs(errorT2) < .01:
                 trigger = trigger + 1
             else:
                 trigger = 0
