@@ -4,7 +4,7 @@
 
   <!-- Constants for robot dimensions -->
   <xacro:property name="PI" value="3.1415926535897931"/>
-  <xacro:property name="mass" value="1" /> <!-- arbitrary value for mass -->
+  <xacro:property name="mass" value=".01" /> <!-- arbitrary value for mass -->
   <xacro:property name="width" value="0.1" /> <!-- Square dimensions (widthxwidth) of beams -->
   <xacro:property name="height1" value="1" /> <!-- Link 1 -->
   <xacro:property name="height2" value="1" /> <!-- Link 2 -->
@@ -21,9 +21,10 @@
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="world"/>
 
-  <joint name="joint0" type="continuous">
+  <joint name="joint0" type="revolute">
     <parent link="world"/>
     <child link="link1"/>
+    <limit effort="1000.0" lower="-3.14159" upper="3.14159" velocity="10"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <dynamics damping="0.7"/>
@@ -50,9 +51,9 @@
       <origin xyz="0 0 ${height1/2}" rpy="0 0 0"/>
       <mass value="${mass}"/>
       <inertia
-	  ixx="${mass / 12.0 * (width*width + height1*height1)}" ixy="0.0" ixz="0.0"
-	  iyy="${mass / 12.0 * (height1*height1 + width*width)}" iyz="0.0"
-	  izz="${mass / 12.0 * (width*width + width*width)}"/>
+	  ixx="${0}" ixy="0.0" ixz="0.0"
+	  iyy="${0}" iyz="0.0"
+	  izz="${0}"/>
     </inertial>
   </link>
 
@@ -83,13 +84,14 @@
        <origin xyz="0 ${height2/2-(width/2)} ${width/2}" rpy="1.57 0 0"/>
       <mass value="${mass}"/>
       <inertia
-	  ixx="${mass / 12.0 * (width*width + height2*height2)}" ixy="0.0" ixz="0.0"
-	  iyy="${mass / 12.0 * (height2*height2 + width*width)}" iyz="0.0"
-	  izz="${mass / 12.0 * (width*width + width*width)}"/>
+	  ixx="${0}" ixy="0.0" ixz="0.0"
+	  iyy="${0}" iyz="0.0"
+	  izz="${0}"/>
     </inertial>
   </link>
 
   <joint name="joint2" type="continuous">
+    <limit effort="1000.0" lower="-3.14159" upper="3.14159" velocity="10"/>
     <parent link="link2"/>
     <child link="link3"/>
     <origin xyz="0 ${height2-(width)} 0" rpy="0 0 0"/>
@@ -119,9 +121,9 @@
       <origin xyz="0 ${height3/2-width} ${width}" rpy="1.57 0 0"/>
       <mass value="${mass}"/>
       <inertia
-	  ixx="${mass / 12.0 * (width*width + height3*height3)}" ixy="0.0" ixz="0.0"
-	  iyy="${mass / 12.0 * (height3*height3 + width*width)}" iyz="0.0"
-	  izz="${mass / 12.0 * (width*width + width*width)}"/>
+	  ixx="${0}" ixy="0.0" ixz="0.0"
+	  iyy="${0}" iyz="0.0"
+	  izz="${0}"/>
     </inertial>
 	<gravity>0</gravity>
   </link>
