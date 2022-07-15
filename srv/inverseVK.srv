@@ -1,0 +1,5 @@
+float64 xdot
+float64 ydot
+float64 zdot
+---
+float64[] qDot

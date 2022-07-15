@@ -64,6 +64,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
   FILES
   scaraIK.srv
   EffectorGoToPosition.srv
+  forwardVK.srv
+  inverseVK.srv
  )
 
 ## Generate actions in the 'action' folder

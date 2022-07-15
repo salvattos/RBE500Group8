@@ -1,0 +1,5 @@
+float64 t1dot
+float64 t2dot
+float64 d3dot
+---
+float64[] eeVel
