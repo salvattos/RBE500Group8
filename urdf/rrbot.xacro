@@ -169,10 +169,10 @@
   <transmission name="tran0">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint0">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor0">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -181,10 +181,10 @@
   <transmission name="tran2">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="joint2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor2">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -192,10 +192,10 @@
  <transmission name="prismatic">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="prismatic">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor3">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>

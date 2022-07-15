@@ -66,6 +66,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
   EffectorGoToPosition.srv
   forwardVK.srv
   inverseVK.srv
+setVelocity.srv
  )
 
 ## Generate actions in the 'action' folder
