@@ -58,7 +58,7 @@ def updateJointValues(jointData):
     curr_d3 = jointData.position[2]
 
 def scara_VK_node():
-    rospy.loginfo(rospy.get_caller_id() + "started IVK node")
+    rospy.loginfo(rospy.get_caller_id() + "started VK node")
     rospy.init_node('scara_VK_node', anonymous=True)
     rospy.Subscriber("/rrbot/joint_states", JointState, updateJointValues)
     s = rospy.Service('scara_FVK_server',forwardVK, calc_forwardVK)

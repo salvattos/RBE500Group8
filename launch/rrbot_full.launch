@@ -2,5 +2,7 @@
 
 <include file="$(find rbe500GroupProject)/launch/rrbot_rviz.launch" />
 <include file="$(find rbe500GroupProject)/launch/rrbot_world.launch" />
-
+<node name="scara_fk_node" pkg="rbe500GroupProject" type="scara_fk_node.py" />
+<node name="scara_VK_node" pkg="rbe500GroupProject" type="scara_IVK.py" />
+<node name="scara_pd_server" pkg="rbe500GroupProject" type="scara_pd_server.py" />
 </launch>
